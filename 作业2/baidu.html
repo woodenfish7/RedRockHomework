@@ -10,17 +10,20 @@
         .blue {
             background: #3385ff;
         }
-
-        div b a {
+        .topBox {
             color: black;
             padding: 10px;
-            width:100px;
-            margin-left: 5px;
-
+            width: 100px;
+            float: right;
+            font-weight: 700;
         }
-         /* 不知道如何让上面一排向右靠齐 */
+
+        
+
+        /* 不知道如何让上面一排向右靠齐 */
         div {
             width: 1000px;
+
         }
 
         .left {
@@ -29,7 +32,7 @@
         }
 
         .right {
-            width: 2000px;
+            width: 100%;
             height: 50px;
             background-color: #3385ff;
             color: #fff;
@@ -48,14 +51,15 @@
 
         .down {
             text-decoration: none;
-            color:black;
+            color: black;
         }
 
-         #a {
+        #a {
             width: 500px;
-            height: 100px;
+            height: 200px;
             background-size: 1000px;
-         }
+        }
+
         /* 不知道如何设置图片大小，是层叠性不对吗 */
         div {
             margin: auto;
@@ -79,28 +83,24 @@
 </head>
 
 <body>
-    <div >
-        <b><a href="#">新闻</a>
-            <a href="#">hao123</a>
-            <a href="#">地图</a>
-            <a href="#">视频 </a>
-            <a href="#">贴吧</a>
-            <a href="#">学术</a>
-            <a href="#">登录</a>
-            <a href="#">设置</a>
-            <a href="#" class="blue">更多产品</a>
-        </b>
+    <div class="topBox">
+        <a href="#">新闻</a>
+        <a href="#">hao123</a>
+        <a href="#">地图</a>
+        <a href="#">视频 </a>
+        <a href="#">贴吧</a>
+        <a href="#">学术</a>
+        <a href="#">登录</a>
+        <a href="#">设置</a>
+        <a href="#" class="blue">更多产品</a>
     </div>
-    <div id="a"><img src="./b1.png">
+    <div><img src="./b1.png" id="a">
     </div>
     <div>
         <input type="text" class="left">
         <a href="#" class="right">百度一下</a>
     </div>
     <pre>
-
-
-
 
 
 
