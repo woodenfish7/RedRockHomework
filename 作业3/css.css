@@ -1,0 +1,30 @@
+
+
+
+.box a {
+    text-decoration: none;
+}
+.box p {
+    color:red;
+}
+.box div:hover {
+    /* display:block; */
+    width: 200px;
+    background-color: yellow;
+}
+.box ul li:nth-child(1){
+    font-size: 20px;
+}
+.box ul li:nth-child(2){
+    font-size: 30px;
+}
+.box ul li:nth-child(3){
+    font-size: 40px;
+}
+html,body {
+    height: 100%;   
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content: center;
+}

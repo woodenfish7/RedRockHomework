@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>move</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            position: relative;
+        }
+
+        .yuan1 {
+            position: absolute;
+            background-color: #00ffff;
+            border-radius: 50%;
+            top: 50px;
+            width: 100px;
+            height: 100px;
+            /* left: 20px; */
+
+        }
+
+        .yuan2 {
+            position: absolute;
+            background-color: #ff8c00;
+            border-radius: 50%;
+            top: 150px;
+            width: 100px;
+            height: 100px;
+            /* left: 20px; */
+
+        }
+
+        .yuan3 {
+            position: absolute;
+            background-color: #708090;
+            border-radius: 50%;
+            top: 250px;
+            width: 100px;
+            height: 100px;
+            /* left: 20px; */
+
+        }
+    </style>
+    <script>
+        window.onload = function () {
+
+            let btn = document.getElementById('btn');
+            let yuan1 = document.querySelector('.yuan1');
+            let yuan2 = document.querySelector('.yuan2');
+            let yuan3 = document.querySelector('.yuan3');
+            let step = 5;
+
+            //法一setTimeout   
+
+            // btn.onclick = function () {
+            //     setTimeout(() => {
+            //         let timer1 = setInterval(function () {
+            //             let a1 = parseInt(yuan1.style.left);
+            //             let a_left1 = a1 + step;
+            //             yuan1.style.left = a_left1 + "px";
+            //         }, 50);
+            //         setTimeout(() => {
+            //             clearTimeout(timer1);
+            //             let timer2 = setInterval(function () {
+            //                 let a2 = parseInt(yuan2.style.left);
+            //                 let a_left2 = a2 + step;
+            //                 yuan2.style.left = a_left2 + "px";
+            //             }, 50);
+            //             setTimeout(() => {
+            //                 clearTimeout(timer2);
+            //                 let timer3 = setInterval(function () {
+            //                     let a3 = parseInt(yuan3.style.left);
+            //                     let a_left3 = a3 + step;
+            //                     yuan3.style.left = a_left3 + "px";
+            //                 }, 50);
+            //                 setTimeout(() => {
+            //                     clearTimeout(timer3);
+            //                 }, 1500)
+            //             }, 1500)
+            //         }, 1500)
+            //     }, 100)
+            // }
+
+            // 法二generator
+
+            let run = (yuan) => {
+                setTimeout(() => {
+                    let timer = setInterval(function () {
+                        let a = parseInt(yuan.style.left);
+                        let a_left = a + step;
+                        yuan.style.left = a_left + "px";
+                        if(a_left>150){
+                            clearInterval(timer);
+                            }
+                    }, 50);
+                }, 1000);
+                return 1;
+            }
+                             
+            function* move() {
+                yield run(yuan1);              
+                yield run(yuan2);              
+                yield run(yuan3);
+                return 1;
+            }
+            let show = move(); 
+
+            setTimeout(()=>{ show.next(yuan1);},1000)          
+            setTimeout(()=>{show.next(yuan2);},2500)
+            setTimeout(()=>{show.next(yuan3);},4000)
+           
+            //法三 async/await
+
+            //  let run = (yuan) => {
+            //     return new Promise((resolve)=>{
+            //     setTimeout(() => {
+            //         let timer = setInterval(function () {
+            //             let a = parseInt(yuan.style.left);
+            //             let a_left = a + step;
+            //             yuan.style.left = a_left + "px";
+            //             if(a_left>150){
+            //                 clearInterval(timer);
+            //                 resolve();
+            //                 return 1;
+            //             }
+            //         }, 50);
+            //     }, 1);
+                
+            //     });
+                
+            // }
+            // async function move(){
+            //     let show1=await run(yuan1);
+            //     let show2=await run(yuan2);
+            //     let show3=await run(yuan3);
+            //     return 1;
+            // }
+            // move().then((yes)=>{
+            //     console.log(yes);
+            // });
+    }
+    </script>
+</head>
+
+<body>
+    <div class="yuan1" style="left:20px;"></div>
+    <div class="yuan2" style="left:20px;"></div>
+    <div class="yuan3" style="left:20px;"></div>
+    <button id="btn">点我点我!</button>
+</body>
+
+</html>

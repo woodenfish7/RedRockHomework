@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  
+  <body>
+    <button class="button">点击我触发回调函数</button>
+  </body>
+
+  <script>
+    // console.log("我在点击事件回调的前面");
+    // document.querySelector('.button').addEventListener('click',()=>{
+    //   console.log("别点了，呜呜呜");
+    // })
+    // console.log("我在点击事件回调的后面");
+    console.log("我是第一");
+
+setTimeout(()=>{
+    console.log("我想第二，但我是异步操作");
+},1000)
+
+console.log("我才是第二");
+console.log("我是第三");
+
+
+//输出结果：
+//我是第一
+//我才是第二
+//我是第三
+//我想第二，但我是异步操作 （1s后）
+  </script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //法1
+        let obj1 = new Object();
+        obj1.name='aha';
+        obj1.age='18';
+        console.log(obj1);
+        //法2
+        let obj2={
+            name:'lolo',
+            age:'18'
+        }
+        console.log(obj2);
+        //法3
+        function Person(name,age) {
+            this.name=name;
+            this.age=age;
+            this.sayName=()=>{
+                console.log(this.name)
+            }
+        }
+        const p1=new Person('aa',18);
+        const p2=new Person('ll',18);
+        console.log(p1);
+        console.log(p2);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+</body>
+<script>
+    const stu = {
+    name: 'MING',
+    hobby: ['play', 'run', 'sing'],
+    address: {
+        school: 'ChongQing',
+        home: 'HENAN'
+    },
+    title: ['student',{year:2022}],
+    skills: {
+        speak() {
+            this.name = 'JACK'
+        },
+    },
+}
+    const { name,hobby:[h1,h2,h3],address:{home},title:[,{year}]} =stu;
+    console.log(name,h1,h2,h3,home,year );
+
+</script>
+</html>
