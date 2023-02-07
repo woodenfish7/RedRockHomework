@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网易云音乐</title>
+    <link rel="stylesheet" type="text/css" href="./index.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo"></div>
+        <div class="user"></div>
+        <!--顶部搜索框（难点）开始-->
+        <div class="search">
+            <div class="more"></div>
+            <input type="text" class="input">
+            <label style="color: #f09b9b;">漠河舞厅·2022</label>
+            <div class="searchContent" style="display:none">
+                <ul>
+                    <li class="only">热搜榜</li>
+                    <li class="item">
+                        <span class="number red">1</span>
+                        <a href="#" class="a_red"><b>爱如火</b></a>
+                    </li>
+                    <li class="item">
+                        <span class="number red">2</span>
+                        <a href="#" class="a_red"><b>我记得</b></a>
+                    </li>
+                    <li class="item">
+                        <span class="number red">3</span>
+                        <a href="#" class="a_red"><b>格莱美</b></a>
+                    </li>
+                    <li class="item">
+                        <span class="number grey">4</span>
+                        <a href="#" class="a_grey">如果爱忘了</a>
+                    </li>
+                    <li class="item">
+                        <span class="number grey">5</span>
+                        <a href="#" class="a_grey">精卫</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--顶部搜索框（难点）结束-->
+        <p class="username">瞎取得名</p>
+    </div>
+    <!--轮播图？？好难-->
+    <div class="turn">
+        <ul id="banner"></ul>
+    </div>
+
+
+    <script>
+        window.onload = function () {
+            //header部分    
+            let s_input = document.querySelector('.input');
+            let label = document.querySelector('label');
+            let s_content = document.querySelector('.searchContent');
+            s_input.addEventListener('mouseover', () => {
+                label.remove();
+                s_input.style.color = '#fdfff2';
+                s_input.style.fontSize = '18px';
+                s_content.style.display = 'block';
+            });
+            s_input.addEventListener('mouseout', () => {
+                s_content.style.display = 'none';
+            });
+            //轮播图部分
+            let timer = setInterval(get_next, 3000)
+            let t_counter = new Array();
+            let t_ul = document.querySelector('#banner');
+            //添加关系
+            for (let i = 1; i <= 4; i++) {
+                var t_li = document.createElement('li');
+                var t_img = document.createElement('img');
+
+                t_img.src = '../photo1/image' + i + '.png';
+                t_img.style.width = '700px';
+                t_img.style.height = '250px';
+                t_li.appendChild(t_img);
+                t_ul.appendChild(t_li);
+                t_counter.push(t_li);
+            }
+            // 左右箭头
+            //pre
+            let pre_img = document.createElement('img');
+            pre_img.src = '../photo1/left.png';
+            pre_img.style.position = 'absolute';
+            pre_img.style.left = '500px';
+            pre_img.style.top = '275px';
+            pre_img.style.bottom = 0;
+            pre_img.style.margin = 'auto';
+            pre_img.style.zIndex = 100;
+            t_ul.appendChild(pre_img);
+
+            let next_img = document.createElement('img');
+            next_img.src = '../photo1/right.png';
+            next_img.style.position = 'absolute';
+            next_img.style.left = '1990px';
+            next_img.style.top = '275px';
+            next_img.style.bottom = 0;
+            next_img.style.margin = 'auto';
+            next_img.style.zIndex = 100;
+            t_ul.appendChild(next_img);
+
+            pre_img.onclick = function () {
+                clearInterval(timer);
+                get_pre();
+                timer = setInterval(get.next, 3000)
+            }
+            next_img.onclick = function () {
+                clearInterval(timer);
+                get_next();
+                timer = setInterval(get.pre, 3000)
+            }
+            let len = t_counter.length - 1;
+            t_counter[t_counter.len - 2].style.left = '0px';
+            t_counter[t_counter.len - 1].style.zIndwx = 100;
+            t_counter[t_counter.len - 1].style.left = '420px';
+            t_counter[t_counter.len - 1].style.transform = 'scale(1.2)';
+            t_counter[t_counter.len].style.left = '840px';
+
+            function get_pre() {
+                let give_up = t_counter[0];
+                t_counter.shift();
+                t_counter.push(give_up);
+                for (let i = 0; i < t_counter.length; i++) {
+                    t_counter[i].style.zIndex = i;
+                    t_counter[i].style.transform = 'scale(1)';
+                }
+                t_counter[len - 2].style.left = '0px';
+                t_counter[len - 1].style.zIndex = 100;
+                t_counter[len - 1].style.left = '420px';
+                t_counter[len - 1].style.transform = 'scale(1.2)';
+                t_counter[len - 1].style.opacity = 1;
+                t_counter[len].style.left = '840px';
+            }
+
+            function get_next() {
+                let give_up = t_counter[len];
+                t_counter.pop();
+                t_counter.unshift(give_up)
+                for (let i = 0; i < t_counter.length; i++) {
+                    t_counter[i].style.zIndex = i;
+                    t_counter[i].style.transform = 'scale(1)';
+                }
+                t_counter[len - 2].style.left = '0px';
+                t_counter[len - 1].style.zIndex = 100;
+                t_counter[len - 1].style.left = '420px';
+                t_counter[len - 1].style.transform = 'scale(1.2)';
+                t_counter[len - 1].style.opacity = 1;
+                t_counter[len].style.left = '840px';
+            }
+
+
+
+        } 
+    </script>
+</body>
+
+</html>

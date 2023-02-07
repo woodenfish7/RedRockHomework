@@ -1,0 +1,156 @@
+* {
+    margin:0;
+    padding:0;
+}
+.header {
+    position:relative;
+    width: auto;
+    height: 90px;
+    background-color: #ec4141;
+}
+.logo {
+    position:absolute;
+    margin-top:11px;
+    height: 67px;
+    width: 224px;
+    background-image: url('../photo1/indexLogo.png');
+}
+.user {
+    position: absolute;
+    margin-left:1926px;
+    margin-top: 23px;
+    height: 43px;
+    width: 43px;
+    border-radius:50%;
+    background-image: url('../photo1/user.png');
+}
+.username {
+    display: block;
+    position: absolute;
+    margin-left:1969px;
+    margin-top: 35px;
+    color:#fad5d5;
+    font-size: 12;
+}
+.user-content {
+    display: none;
+    
+}
+.search {
+    position: absolute;
+    margin-left:450px;
+    margin-top: 22px;
+    width: 240px;
+    height: 50px;
+    background-color: #e33e3e;
+    border-radius:32px;  
+}
+.search .input {
+    float:right;
+    margin-right:20px;
+    margin-top: 7px;
+    display: block;
+    width: 160px;
+    height: 35px;
+    background-color: #e33e3e;
+    border:none;
+}
+.input:focus {
+    outline:0;
+}
+.search .more {
+    position:absolute;
+    width: 30px;
+    height: 27px;
+    background-image: url('../photo1/more.png');
+    background-repeat: no-repeat;
+    margin-top:11px;
+    margin-left:20px;
+}
+.search label {
+    display: block;
+    position: absolute;
+    cursor:text;
+    color: #f09b9b;
+    width: 90%;
+    margin-top: 11px;
+    margin-left:63px;
+}
+.searchContent {
+    position:absolute;
+    margin-left: 310x;
+    margin-top: 78px;
+    width: 530px;
+    height: 486px;
+    background-color: #ffffff;
+    box-shadow:2px 2px 2px 2px #efefef;
+}
+.searchContent ul li {
+    list-style: none;
+    width: 530px;
+    height: 82px; 
+    
+}
+.searchContent ul li .red {
+    color: #fe4848;
+}
+.searchContent ul li .a_red {
+    color: #414141;
+    
+}
+.searchContent ul li .grey {
+    color: #d8d8d8;
+}
+.searchContent ul li .a_grey {
+    color: #4b4b4b;
+}
+.searchContent ul .only {
+    display: block;
+    margin-left: 33px;
+    margin-top: 27px;
+    font-size: 21px;
+    height: 70px;
+}
+.searchContent ul .item:hover {
+    background-color: #f2f2f2;
+}
+.searchContent ul li a {
+    display: inline;
+    text-decoration: none;
+    color: #000;
+    margin-left: 28px;
+    font-style: 19px;
+}
+
+.searchContent ul li .number {
+    display: inline;
+    width: 85px;
+    height: 82px;
+    font-size: 25px;
+    margin-left: 33px;
+    margin-top: 20px;   
+}
+.turn ul {
+    list-style: none;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+.turn {
+    position: absolute;
+    
+}
+.turn ul:hover {
+    cursor:pointer;
+}
+.turn li {
+    float:left;
+    position: absolute;
+    left:0px;
+    transition-duration:0.4s; 
+    margin-left:500px;
+    margin-top: 150px;
+}
